@@ -9,6 +9,7 @@ Although this is a "labs" repository, some of the providers and APIs here are pr
 
 | Name | Type | Production Ready |
 |------|------|------------------|
+| hpcloud-objectstorge | Provider | Beta |
 | openstack-glance | API | No |
 | openstack-marconi | API | No |
 | openstack-neutron | API | Yes |
