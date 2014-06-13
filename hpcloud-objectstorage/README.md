@@ -3,7 +3,7 @@ HP Cloud Object Storage
 
 The new HP Cloud Object Storage multi-region based service API.
 
-This new "hpcloud-objectstorage" API supercedes the jclouds "objectstorage" API, which will eventually be deprecated.
+This new "hpcloud-objectstorage" API supersedes the jclouds "objectstorage" API, which will eventually be deprecated.
 
 With this multi-region support, each BlobStore can be isolated to a specific region:
 
