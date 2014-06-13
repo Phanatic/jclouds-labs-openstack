@@ -32,7 +32,7 @@ import org.testng.annotations.Test;
 public class CloudFilesAccountApiLiveTest extends AccountApiLiveTest {
 
    public CloudFilesAccountApiLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 
    public void testUrlKeyExists() throws Exception {

@@ -60,7 +60,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setBody(stringFromResource("/cdn_container_list.json"))));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
          CDNApi cdnApi = api.getCDNApiForRegion("DFW");
 
          ImmutableList<CDNContainer> cdnContainers = cdnApi.list().toList();
@@ -81,7 +81,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
          CDNApi cdnApi = api.getCDNApiForRegion("DFW");
 
          List<CDNContainer> cdnContainers = cdnApi.list().toList();
@@ -102,7 +102,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setBody(stringFromResource("/cdn_container_list_at.json"))));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
          ListCDNContainerOptions options = new ListCDNContainerOptions().marker("cdn-container-3");
          ImmutableList<CDNContainer> containers = api.getCDNApiForRegion("DFW").list(options).toList();
 
@@ -126,7 +126,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
          ListCDNContainerOptions options = ListCDNContainerOptions.Builder.marker("cdn-container-3");
          FluentIterable<CDNContainer> containers = api.getCDNApiForRegion("DFW").list(options);
 
@@ -147,7 +147,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(201)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // enable a CDN Container
          URI enabledContainer = api.getCDNApiForRegion("DFW").enable("container-1");
@@ -167,7 +167,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(404)));
  
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
          // enable a CDN Container
          assertNull(api.getCDNApiForRegion("DFW").enable("container-1"));
 
@@ -185,7 +185,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(201)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // enable a CDN Container with a TTL
          URI enabledContainer = api.getCDNApiForRegion("DFW").enable("container-1", 777777);
@@ -205,7 +205,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // enable a CDN Container with a TTL
          URI enabledContainer = api.getCDNApiForRegion("DFW").enable("container-1", 777777);
@@ -225,7 +225,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(201)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // disable a CDN Container
          assertTrue(api.getCDNApiForRegion("DFW").disable("container-1"));
@@ -244,7 +244,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // disable a CDN Container
          boolean disbledContainer = api.getCDNApiForRegion("DFW").disable("container-1");
@@ -264,7 +264,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(201)));
       
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          CDNContainer cdnContainer = api.getCDNApiForRegion("DFW").get("container-1");
          assertCDNContainerNotNull(cdnContainer);
@@ -284,7 +284,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(enabledResponse().setResponseCode(201)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          CDNContainer cdnContainer = api.getCDNApiForRegion("DFW").get("cdn-container with spaces");
          assertCDNContainerNotNull(cdnContainer);
@@ -304,7 +304,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          CDNContainer cdnContainer = api.getCDNApiForRegion("DFW").get("container-1");
 
@@ -322,7 +322,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setResponseCode(201)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // purge the object
          assertTrue(api.getCDNApiForRegion("DFW").purgeObject("myContainer", "myObject", emails));
@@ -341,7 +341,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(new MockResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          // purge the object
          assertFalse(api.getCDNApiForRegion("DFW").purgeObject("myContainer", "myObject", emails));
@@ -362,7 +362,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(updatedResponse().setResponseCode(200)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          CDNContainer cdnContainer = api.getCDNApiForRegion("DFW").get("container-1");
          assertCDNContainerNotNull(cdnContainer);
@@ -403,7 +403,7 @@ public class CloudFilesCDNApiMockTest extends BaseOpenStackMockTest<CloudFilesAp
       server.enqueue(addCommonHeaders(updatedResponse().setResponseCode(404)));
 
       try {
-         CloudFilesApi api = api(server.getUrl("/").toString(), "rackspace-cloudfiles");
+         CloudFilesApi api = api(server.getUrl("/").toString(), "hpcloud-objectstorage");
 
          CDNContainer cdnContainer = api.getCDNApiForRegion("DFW").get("container-1");
          assertCDNContainerNotNull(cdnContainer);

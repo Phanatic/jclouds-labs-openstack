@@ -67,7 +67,7 @@ public class CloudFilesApiMetadata extends BaseHttpApiMetadata<CloudFilesApi> {
    public static class Builder extends BaseHttpApiMetadata.Builder<CloudFilesApi, Builder> {
 
       protected Builder() {
-          id("rackspace-cloudfiles")
+          id("hpcloud-objectstorage")
          .name("Rackspace Cloud Files API")
          .identityName("${userName}")
          .credentialName("${apiKey}")

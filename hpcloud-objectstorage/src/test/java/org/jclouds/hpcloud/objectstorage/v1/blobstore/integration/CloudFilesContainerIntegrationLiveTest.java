@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 public class CloudFilesContainerIntegrationLiveTest extends SwiftContainerIntegrationLiveTest {
 
    public CloudFilesContainerIntegrationLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 
    @Override

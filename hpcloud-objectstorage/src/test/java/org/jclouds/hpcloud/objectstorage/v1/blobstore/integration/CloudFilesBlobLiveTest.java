@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 public class CloudFilesBlobLiveTest extends SwiftBlobLiveTest {
 
    public CloudFilesBlobLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 
    @Override

@@ -26,6 +26,6 @@ import org.testng.annotations.Test;
 @Test(groups = "live", testName = "BaseCloudFilesApiLiveTest")
 public abstract class BaseCloudFilesApiLiveTest extends BaseSwiftApiLiveTest<CloudFilesApi> {
    protected BaseCloudFilesApiLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 }

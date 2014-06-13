@@ -30,7 +30,7 @@ import org.testng.annotations.Test;
 public class CloudFilesRegionScopedBlobStoreContextLiveTest extends RegionScopedBlobStoreContextLiveTest {
 
    public CloudFilesRegionScopedBlobStoreContextLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 
    @Override

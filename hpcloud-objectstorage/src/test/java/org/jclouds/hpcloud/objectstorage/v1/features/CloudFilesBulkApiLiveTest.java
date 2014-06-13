@@ -26,6 +26,6 @@ import org.testng.annotations.Test;
 @Test(groups = "live", testName = "CloudFilesBulkApiLiveTest")
 public class CloudFilesBulkApiLiveTest extends BulkApiLiveTest {
    public CloudFilesBulkApiLiveTest() {
-      provider = "rackspace-cloudfiles";
+      provider = "hpcloud-objectstorage";
    }
 }
